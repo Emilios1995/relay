@@ -209,7 +209,7 @@ function useLoadMoreFunction<TQuery: OperationType>(
             identifierValue,
           );
         }
-        paginationVariables.id = identifierValue;
+        paginationVariables[identifierField] = identifierValue;
       }
 
       const paginationQuery = createOperationDescriptor(
