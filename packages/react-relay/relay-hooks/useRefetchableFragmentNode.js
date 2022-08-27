@@ -236,6 +236,8 @@ function useRefetchableFragmentNode<
       debugPreviousIDAndTypename = debugFunctions.getInitialIDAndType(
         refetchQuery.request.variables,
         fragmentRefPathInResponse,
+        fragmentNode,
+        componentDisplayName,
         environment,
       );
     }
@@ -453,7 +455,7 @@ function useRefetchFunction<TQuery: OperationType>(
       // was not explicitly provided, read it from the fragment data.
       if (
         identifierField != null &&
-        !providedRefetchVariables.hasOwnProperty('id')
+        !providedRefetchVariables.hasOwnProperty(identifierField)
       ) {
         // @refetchable fragments are guaranteed to have an `id` selection
         // if the type is Node, implements Node, or is @fetchable. Double-check
@@ -467,7 +469,7 @@ function useRefetchFunction<TQuery: OperationType>(
             identifierValue,
           );
         }
-        (refetchVariables: $FlowFixMe).id = identifierValue;
+        (refetchVariables: $FlowFixMe)[identifierField] = identifierValue;
       }
 
       const refetchQuery = createOperationDescriptor(
@@ -516,10 +518,21 @@ if (__DEV__) {
     getInitialIDAndType(
       memoRefetchVariables: ?Variables,
       fragmentRefPathInResponse: $ReadOnlyArray<string | number>,
+      fragmentNode: ReaderFragment,
+      componentDisplayName: string,
       environment: IEnvironment,
     ): ?DebugIDandTypename {
       const {Record} = require('relay-runtime');
-      const id = memoRefetchVariables?.id;
+      const {identifierField} = getRefetchMetadata(
+        fragmentNode,
+        componentDisplayName,
+      );
+      const id =
+        identifierField !== null &&
+        identifierField !== undefined &&
+        identifierField !== ''
+          ? memoRefetchVariables?.[identifierField]
+          : null;
       if (
         fragmentRefPathInResponse.length !== 1 ||
         fragmentRefPathInResponse[0] !== 'node' ||
