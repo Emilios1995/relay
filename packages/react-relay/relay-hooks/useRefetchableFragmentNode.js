@@ -455,6 +455,7 @@ function useRefetchFunction<TQuery: OperationType>(
       // was not explicitly provided, read it from the fragment data.
       if (
         identifierField != null &&
+        !providedRefetchVariables.hasOwnProperty('id') &&
         !providedRefetchVariables.hasOwnProperty(identifierField)
       ) {
         // @refetchable fragments are guaranteed to have an `id` selection
@@ -469,6 +470,7 @@ function useRefetchFunction<TQuery: OperationType>(
             identifierValue,
           );
         }
+        (refetchVariables: $FlowFixMe).id = identifierValue;
         (refetchVariables: $FlowFixMe)[identifierField] = identifierValue;
       }
 
@@ -527,12 +529,7 @@ if (__DEV__) {
         fragmentNode,
         componentDisplayName,
       );
-      const id =
-        identifierField !== null &&
-        identifierField !== undefined &&
-        identifierField !== ''
-          ? memoRefetchVariables?.[identifierField]
-          : null;
+      const id = memoRefetchVariables?.id;
       if (
         fragmentRefPathInResponse.length !== 1 ||
         fragmentRefPathInResponse[0] !== 'node' ||
