@@ -215,7 +215,7 @@ function useRefetchableFragmentNode<
 
   let fragmentRef = parentFragmentRef;
 
-  const {identifierQueryVariableName} = getRefetchMetadata(
+  const {identifierInfo} = getRefetchMetadata(
     fragmentNode,
     componentDisplayName,
   );
@@ -245,7 +245,7 @@ function useRefetchableFragmentNode<
       debugPreviousIDAndTypename = debugFunctions.getInitialIDAndType(
         refetchQuery.request.variables,
         fragmentRefPathInResponse,
-        identifierQueryVariableName,
+        identifierInfo?.identifierQueryVariableName,
         environment,
       );
     }
