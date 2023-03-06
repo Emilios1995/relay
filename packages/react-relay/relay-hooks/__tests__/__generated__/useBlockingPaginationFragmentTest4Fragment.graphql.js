@@ -6,7 +6,7 @@
  *
  * @oncall relay
  *
- * @generated SignedSource<<a3f9d4f8c6b5795bbdb70a9e2f99c143>>
+ * @generated SignedSource<<cf42b887c549e18d683c5262aa11115f>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -42,8 +42,10 @@ var node/*: ReaderFragment*/ = {
         "node"
       ],
       "operation": require('./useBlockingPaginationFragmentTest4FragmentRefetchQuery.graphql'),
-      "identifierField": "id",
-      "identifierQueryVariableName": "id"
+      "indentifierInfo": {
+        "identifierField": "id",
+        "identifierQueryVariableName": "id"
+      }
     }
   },
   "name": "useBlockingPaginationFragmentTest4Fragment",

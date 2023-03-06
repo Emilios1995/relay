@@ -6,7 +6,7 @@
  *
  * @oncall relay
  *
- * @generated SignedSource<<b0d21393b75c6c2ff357678f7f9bc0a1>>
+ * @generated SignedSource<<5549ea17e6b22dd4b44ba3a07498ecb1>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -121,8 +121,10 @@ return {
         "node"
       ],
       "operation": require('./usePaginationFragmentTestUserFragmentPaginationQuery.graphql'),
-      "identifierField": "id",
-      "identifierQueryVariableName": "id"
+      "indentifierInfo": {
+        "identifierField": "id",
+        "identifierQueryVariableName": "id"
+      }
     }
   },
   "name": "usePaginationFragmentTestUserFragment",

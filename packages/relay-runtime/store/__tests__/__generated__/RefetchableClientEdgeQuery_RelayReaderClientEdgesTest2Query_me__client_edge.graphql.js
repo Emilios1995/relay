@@ -6,7 +6,7 @@
  *
  * @oncall relay
  *
- * @generated SignedSource<<3907c91ef6989ecfcc0f23c05c06be6b>>
+ * @generated SignedSource<<f91f55d5597229444c7e400aa5128d83>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -45,8 +45,10 @@ var node/*: ReaderFragment*/ = {
         "node"
       ],
       "operation": require('./ClientEdgeQuery_RelayReaderClientEdgesTest2Query_me__client_edge.graphql'),
-      "identifierField": "id",
-      "identifierQueryVariableName": "id"
+      "indentifierInfo": {
+        "identifierField": "id",
+        "identifierQueryVariableName": "id"
+      }
     }
   },
   "name": "RefetchableClientEdgeQuery_RelayReaderClientEdgesTest2Query_me__client_edge",

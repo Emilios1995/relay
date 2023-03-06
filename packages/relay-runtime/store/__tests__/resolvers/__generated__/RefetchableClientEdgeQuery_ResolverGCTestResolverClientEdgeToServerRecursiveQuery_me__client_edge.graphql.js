@@ -6,7 +6,7 @@
  *
  * @oncall relay
  *
- * @generated SignedSource<<0bb6f8d46d9b4cd925a53212bcd6b7a5>>
+ * @generated SignedSource<<80f574d4b0fc2c62974538c456663207>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -72,7 +72,10 @@ return {
         "node"
       ],
       "operation": require('./ClientEdgeQuery_ResolverGCTestResolverClientEdgeToServerRecursiveQuery_me__client_edge.graphql'),
-      "identifierField": "id"
+      "indentifierInfo": {
+        "identifierField": "id",
+        "identifierQueryVariableName": "id"
+      }
     }
   },
   "name": "RefetchableClientEdgeQuery_ResolverGCTestResolverClientEdgeToServerRecursiveQuery_me__client_edge",
