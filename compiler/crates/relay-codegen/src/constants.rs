@@ -173,7 +173,7 @@ lazy_static! {
         id: "id".intern(),
         identifier_field: "identifierField".intern(),
         identifier_query_variable_name: "identifierQueryVariableName".intern(),
-        identifier_info: "indentifierInfo".intern(),
+        identifier_info: "identifierInfo".intern(),
         if_: "if".intern(),
         inline_data_fragment_spread: "InlineDataFragmentSpread".intern(),
         inline_data_fragment: "InlineDataFragment".intern(),
